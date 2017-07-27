@@ -19,6 +19,16 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: install basic dependencies
+          command: |
+            wget -q ftp://alpha.gnu.org/pub/gnu/libidn/libidn-1.33.tar.gz
+            tar xfz libidn-1.33.tar.gz
+            cd libidn-1.33/
+            ./configure
+            make
+            make install
+      
       # Download and cache dependencies
       - restore_cache:
           keys:
