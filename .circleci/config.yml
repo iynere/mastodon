@@ -29,6 +29,7 @@ jobs:
       - run:
           name: install ruby dependencies
           command: |
+            apt-get install libicu-dev
             gem install bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
